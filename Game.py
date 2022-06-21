@@ -1,3 +1,4 @@
+from random import randint
 import time
 def inputagain():
     print("You did not input an appropriate entry. Please try again!")
@@ -31,7 +32,8 @@ def mainmenu():
 
 def trial():
     print("Make a guess")
-    guess =int(input())
+    global guess 
+    guess = int(input())
 
 name = "Nada"
 print("Hello, nice to meet you. My name is", name)
@@ -109,25 +111,17 @@ while Option1!='X':
         print("I see you enjoy math:)")
         print("This activity is very simple. I am thinking of a number between 1 and 100. Guess that number in the fewest number of tries possible!")
         print("You only get 10 guesses though!")
-        answer = 58
+        answer = randint(1, 100)
         answer = int(answer)
         for i in range(10):
-            try:
-                print("Make a guess")
-                guess = int(input())
-                if guess == answer:
-                    print('You guessed it!')
-                    break
-                    print('Too high')
-                    trial()
-                elif guess < answer:
-                    print('Too low')
-                    trial()
-                else:
-                    print('Too high')
-                    trial()
-            except ValueError:
-                inputagain()
+            trial()
+            if guess == answer:
+                print('You guessed it!')
+                break
+            elif guess < answer:
+                print('Too low')
+            else:
+                print('Too high')
                 
         Option1=mainmenu().upper()
     elif Option1 == "C":
@@ -181,7 +175,7 @@ while Option1!='X':
         else:
             inputagain()
         if systolicpressure <= 120:
-            print('Your systolic blood pressure is within the normal category')
+            print('Your systolic blood pressure is within the normal category') 
         elif 120 <= systolicpressure <= 129:
             print('Your systolic blood pressure is within the elevated category')
         elif 130 <= systolicpressure <= 139:
