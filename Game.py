@@ -21,7 +21,7 @@ def mainmenu():
         try:
             Option1 = input()
             Option1 = Option1.upper() 
-            if Option1== "A" or Option1=="B" or Option1== "C" or Option1== "D":
+            if Option1== "A" or Option1=="B" or Option1== "C" or Option1== "D" or Option1 == "X":
                 goodReply1=1
                 return(Option1)
             else:
@@ -76,7 +76,7 @@ while Option1!='X':
         print("Here is a list of clothing options & their prices:")
         order=1
         for x in options:
-            print("Item Number:"+str(order)+"    Item Name:"+str(x)+"    Price:"+str(option_price[x]))
+            print("Item Number:"+str(order)+"    Item Name:"+str(x) .ljust(17) +"    Price:"+str(option_price[x]))
             order+=1
         print("Please enter the number of the item you would like to select. Select 9 to complete your shopping experiece and check out:")
         money= int(money)
@@ -115,15 +115,17 @@ while Option1!='X':
             try:
                 print("Make a guess")
                 guess = int(input())
-                if guess > answer:
+                if guess == answer:
+                    print('You guessed it!')
+                    break
                     print('Too high')
                     trial()
                 elif guess < answer:
                     print('Too low')
                     trial()
-                elif guess == answer:
-                    print('You guessed it!')
-                    break
+                else:
+                    print('Too high')
+                    trial()
             except ValueError:
                 inputagain()
                 
@@ -166,39 +168,39 @@ while Option1!='X':
                     print('Please enter an Integer between 0 and 200. Try again!')
             except ValueError:
                 inputagain()
-        if 60<heartrate<100:
+        if 60 <= heartrate <= 100:
             print('You are within the normal range! Generally, a lower heart rate correlates to more efficient heart function')
-        elif heartrate>100:
+        elif heartrate >= 100:
             print('You are tachycardic. Your heart rate is way too fast')
-            print('This is generally normal during exercise or when a lot of stress')
+            print('This is generally normal during exercise or when under a lot of stress')
             print('Try to relax/remain calm/practice deep breathing to lower your heart rate')
-        elif heartrate<0:
+        elif heartrate >= 0: 
             print('You are bradycardic. Your heart rate is too slow')
             print('This is common during deep sleep')
             print('Try a quick exercise to raise your heart rate')
         else:
             inputagain()
-        if systolicpressure<120:
+        if systolicpressure <= 120:
             print('Your systolic blood pressure is within the normal category')
-        elif 120<systolicpressure<129:
+        elif 120 <= systolicpressure <= 129:
             print('Your systolic blood pressure is within the elevated category')
-        elif 130<systolicpressure<139:
+        elif 130 <= systolicpressure <= 139:
             print('Your systolic blood pressure is within the first stage of hypertension')
-        elif 140<systolicpressure<180:
+        elif 140 <= systolicpressure <= 180:
             print('Your systolic blood pressure is within the second stage of hypertension')
-        elif systolicpressure>180:
-            print('You are experiencing a hypertensive crisis, contact a doctor immediately')
+        elif systolicpressure >= 180:
+            print('Your systolic pressure indicates that you are experiencing a hypertensive crisis, contact a doctor immediately')
         else:
             inputagain()
-        if diastolicpressure<80:
-            print('If your systolic pressure is below 120, your current diastolic pressure indicates that you are within the normal range')
-            print('If your systolic pressure is between 120 and 129, your current diastolic pressure indivates that you are within the elevated blood pressure range')
-        elif 80<diastolicpressure<89:
+        if diastolicpressure <=80:
+            print('If your systolic pressure is normal, your current diastolic pressure indicates that you are within the normal range')
+            print('If your systolic pressure is elevated, your current diastolic pressure indicates that you are within the elevated blood pressure range')
+        elif 80<diastolicpressure<=89:
             print('Your diastolic pressure is within the first stage of hypertension')
-        elif 90<diastolicpressure<120:
+        elif 90<=diastolicpressure<=120:
             print('Your diastolic pressure is within the second stage of hypertension')
-        elif 120<diastolicpressure:
-            print('You are experiencing a hypertensive crisis, contact your doctor immediately')
+        elif 120>= diastolicpressure:
+            print('Your diastolic pressure indicates that you are experiencing a hypertensive crisis, contact your doctor immediately')
         else:
             inputagain()
             
@@ -298,3 +300,4 @@ while Option1!='X':
                 print('Please select either Y or N')
         Option1=mainmenu().upper()
     print('Good Bye! We hope you enjoyed your time here with us :)')
+    exit()
