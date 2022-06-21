@@ -2,7 +2,7 @@
 
 A `Python` game with an emphasis on **code reusability**
 
-- Uses the time and random libraries
+- Uses the **time** and **random** libraries
 - Is able to detect invalid entries
 - Involves 4 mini games/activities
 
