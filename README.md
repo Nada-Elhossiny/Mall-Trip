@@ -3,7 +3,7 @@
 A `Python` choose your own adventure style game with an emphasis on **code reusability**
 
 - Uses the **time** and **random** libraries
-- Is able to detect invalid entries
+- Is able to detect invalid entries and verifies format
 - Involves 4 mini games/activities
 
 ## Example
